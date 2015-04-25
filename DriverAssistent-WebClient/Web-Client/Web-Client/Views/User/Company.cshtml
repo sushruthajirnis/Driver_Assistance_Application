@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Web_Client.Models.Company>
+@{
+    ViewBag.Title = "Company";
+}
+
+<h2>Company</h2>
+
+@if(Model!=null){
+
+<table style="border: 0.5px solid black;">
+    <thead style="border-left: 1px solid black; border-top: 1px solid black;">
+
+        <th style="border-right: 1px solid black;">Company Name </th>
+        <th style="border-right: 1px solid black;">Address</th>
+        <th style="border-right: 1px solid black;">Destination Link </th>
+        <th style="border-right: 1px solid black;">Appointment Link </th>
+        <th style="border-right: 1px solid black;">OpenHours </th>
+         <th style="border-right: 1px solid black;">OpenDays </th>
+    </thead>
+    <tbody>
+
+
+        @foreach (var item in Model)
+        {
+
+            <tr style="border: 0.5px solid black;">
+
+                <td style="border: 1px solid black;">
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+
+                <td style="border: 1px solid black;">
+                    @Html.DisplayFor(modelItem => item.address1)
+
+
+                    @Html.DisplayFor(modelItem => item.address2)
+
+                </td>
+                <td style="border: 1px solid black;">
+                    <a href="@Url.Action("Destination", "User", new { addr1 = item.address1 + item.address2 })">View Destination</a>
+                </td>
+                <td style="border: 1px solid black; border-collapse: collapse;">
+                    <a href="@Url.Action("Appointment", "User")">Make Appointment</a>
+                </td>
+                <td style="border: 1px solid black; border-collapse: collapse;">
+                    @Html.DisplayFor(modelItem => item.openHours)
+                </td>
+                <td style="border: 1px solid black; border-collapse: collapse;">
+                    @Html.DisplayFor(modelItem => item.openDays)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+}

@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@Html.Partial("_LoginPartial")
+<div class="col-sm-6 col-md-4" style="margin-left:-150px; margin-top:20px;">
+    <div class="thumbnail"><a href="@Url.Action("Company", "User", new { category= "Gasstation"})">
+        <img src="~/Images/gas_station_default.png" style="width: 60px; height: 60px" class="img-circle"></a>
+        <div class="caption">
+            <h7><b>Gas Station</b></h7>
+        </div>
+    </div>
+
+
+
+    <div class="thumbnail"><a href="@Url.Action("Company", "User", new { category= "Hospital"})">
+        <img src="~/Images/hospital_default.png" style="width: 60px; height: 60px" class="img-circle"></a>
+        <div class="caption">
+            <h7><b>Hospital</b></h7>
+        </div>
+    </div>
+
+
+
+    <div class="thumbnail"><a href="@Url.Action("Company", "User", new { category= "TireRepair"})">
+        <img src="~/Images/grocery_default.png" style="width: 60px; height: 60px" class="img-circle"></a>
+        <div class="caption">
+            <h7><b>Tire Repair</b></h7>
+        </div>
+    </div>
+
+
+    <div class="thumbnail"><a href="@Url.Action("Company", "User", new { category= "Towing"})">
+        <img src="~/Images/taxi_default.png" style="width: 60px; height: 60px" class="img-circle"></a>
+        <div class="caption">
+            <h7><b>Towing</b></h7>
+      </div>
+    </div>
+
+
+
+    <div class="thumbnail"><a href="@Url.Action("Company", "User", new { category= "Hotel"})">
+        <img src="~/Images/hotel_default.png" style="width: 60px; height: 60px" class="img-circle"></a>
+        <div class="caption">
+            <h7><b>Hotel</b></h7>
+        </div>
+    </div>
+
+
+
+    <div class="thumbnail"><a href="@Url.Action("Company", "User", new { category= "Restaurant"})">
+        <img src="~/Images/restaurant_default.png" style="width: 60px; height: 60px" class="img-circle"></a>
+        <div class="caption">
+            <h7><b>Restaurant</b></h7>
+        </div>
+    </div>
+
+    
+
+
+    @section Scripts{
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFo9xcOW4nJiluFfcVYBKspPBIsWOoZ2E&sensor=true">
+    </script>
+   
+    <script type="text/javascript">
+        var geocoder;
+        var map;
+        var directionsDisplay;
+        var directionsService = new google.maps.DirectionsService();
+        function initialize() {
+            directionsDisplay = new google.maps.DirectionsRenderer();
+            geocoder = new google.maps.Geocoder();
+            var mapOptions = {
+                center: new google.maps.LatLng(37.422006, -122.084095),
+                zoom: 9
+            };
+            map = new google.maps.Map(document.getElementById("map-canvas"),
+                mapOptions);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    }
+    <div id="map-canvas" style="float: left; clear: right; left:380px; bottom: 630px; height: 600px; width: 1100px;"></div>

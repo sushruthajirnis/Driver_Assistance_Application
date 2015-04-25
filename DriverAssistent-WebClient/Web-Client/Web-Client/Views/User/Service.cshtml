@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Web_Client.Models.Service>
+@{
+    ViewBag.Title = "ServicePage";
+}
+@Html.Partial("_LoginPartial")
+<div style="margin-left: 50px; margin-top: 20px;">
+    <table align="center" style="width:100%">
+        
+        <tr>
+            <td>
+                <a href="@Url.Action("Company", "User", new { category = "Gasstation" })">
+                    <img src="~/Images/gas_station_default.png" style="width: 100px; height: 100px" class="img-square"></a>
+                <div class="caption">
+                    <h7><b>Gas Station</b></h7>
+                </div>
+            </td>
+            <td>
+                <a href="@Url.Action("Company", "User", new { category = "Hospital" })">
+                    <img src="~/Images/hospital_default.png" style="width: 100px; height: 100px" class="img-square"></a>
+                <div class="caption">
+                    <h7><b>Hospital</b></h7>
+                </div>
+            </td>
+            <td>
+                <a href="@Url.Action("Company", "User", new { category = "TireRepair" })">
+                    <img src="~/Images/grocery_default.png" style="width: 100px; height: 100px" class="img-square"></a>
+                <div class="caption">
+                    <h7><b>Tire Repair</b></h7>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="height:50px;" />
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr>
+            <td>
+                <a href="@Url.Action("Company", "User", new { category = "Towing" })">
+                    <img src="~/Images/taxi_default.png" style="width: 100px; height: 100px" class="img-square"></a>
+                <div class="caption">
+                    <h7><b>Towing</b></h7>
+                </div>
+            </td>
+            <td>
+                <a href="@Url.Action("Company", "User", new { category = "Hotel" })">
+                    <img src="~/Images/hotel_default.png" style="width: 100px; height: 100px" class="img-square"></a>
+                <div class="caption">
+                    <h7><b>Hotel</b></h7>
+                </div>
+            </td>
+            <td>
+                <a href="@Url.Action("Company", "User", new { category = "Restaurant" })">
+                    <img src="~/Images/restaurant_default.png" style="width: 100px; height: 100px" class="img-square"></a>
+                <div class="caption">
+                    <h7><b>Restaurant</b></h7>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

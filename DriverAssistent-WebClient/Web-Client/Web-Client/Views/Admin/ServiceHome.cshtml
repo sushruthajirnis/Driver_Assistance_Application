@@ -1,0 +1,61 @@
+﻿@model Web_Client.Models.Service
+@{
+    ViewBag.Title = "Services";
+}
+
+<h3>Add Service Details for the company</h3>
+
+
+   
+@using (Html.BeginForm("ServiceHome", "Admin", new { submit = true , Cid=Request.Params["Cid"] , cmpId=Request.Params["CID"]}))
+{
+     
+     <fieldset>
+         
+         
+        <legend>Service Details</legend>
+       
+<table>
+       <tr> <td><div class="editor-label">
+            @Html.LabelFor(model => model.name)
+        </div>
+         
+        <div class="editor-field">
+            @Html.EditorFor(model => model.name)
+
+        </div></td>
+            
+        <td><div class="editor-label">
+           @Html.LabelFor(model=> model.serviceType)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.serviceType,new SelectList(Enum.GetValues(typeof(Web_Client.Models.ServiceType))) )
+
+        </div>
+            </td></tr>
+
+       <tr> <td><div class="editor-label">
+            @Html.LabelFor(model => model.price)
+        </div>
+         
+        <div class="editor-field">
+            @Html.EditorFor(model => model.price)
+
+        </div></td>
+           <td><div class="editor-label">
+           @Html.LabelFor(model=> model.specialDeal)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.specialDeal, new SelectList(new List<object> { new {value = true, text= "True"},new{value= false,text="False"}},"value","text"))
+
+        </div>
+            </td></tr>
+    </table>
+        <p>
+            
+            <input type="submit" value="Add Service" />
+        </p>
+    </fieldset>
+}
+
+<h4>No Company Added </h4><a href="@Url.Action("CompanyHome","Admin")">Add here</a>

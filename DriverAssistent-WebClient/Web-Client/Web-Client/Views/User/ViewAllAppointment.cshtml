@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Web_Client.Models.Appointment>
+@{
+    ViewBag.Title = "ViewAllAppointment";
+}
+
+<h2>ViewAllAppointment</h2>
+@if(Model!=null){
+    
+
+
+foreach (var item in Model)
+{
+    <table>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+                </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.startTime)
+                </td>
+            
+            
+        </tr>
+    </table>
+}
+}

@@ -1,0 +1,105 @@
+﻿@model Web_Client.Models.Company
+@{
+    ViewBag.Title = "CompanyHome";
+   
+        
+}
+
+@if (ViewBag.compname != null)
+{
+    <h3>@ViewBag.compname</h3>
+}
+
+
+@using (Html.BeginForm("CompanyHome", "Admin", new { submit = true }))
+{
+        <fieldset>
+        <legend>Company Details</legend>
+<table>
+       <tr> <td><div class="editor-label">
+            @Html.LabelFor(model => model.name)
+        </div>
+         
+        <div class="editor-field" >
+            @Html.EditorFor(model => model.name)
+
+        </div></td>
+            
+        <td><div class="editor-label">
+            @Html.LabelFor(model => model.phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.phone)
+
+        </div>
+            </td></tr>
+
+        <tr> <td><div class="editor-label">
+            @Html.LabelFor(model => model.openDays)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.openDays)
+            
+        </div>
+            </td><td>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.openHours)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.openHours)
+
+        </div>
+            </td></tr>
+       <tr><td> <div class="editor-label">
+            @Html.LabelFor(model => model.address1)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model=> model.address1)
+
+        </div>
+           </td><td>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.address2)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model=> model.address2)
+
+        </div>
+              </td></tr>
+       <tr><td><div class="editor-label">
+            @Html.LabelFor(model => model.city)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model=>model.city)
+
+        </div>
+           </td><td>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.state)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model=>model.state)
+
+        </div>
+               </td></tr>
+        <tr><td><div class="editor-label">
+            @Html.LabelFor(model => model.zip)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model=>model.zip)
+
+        </div>
+            </td></tr>
+    </table>
+        <p>
+            
+            <input type="submit" value="Add Company" />
+        </p>
+    </fieldset>
+    <label>Company Already Added</label>
+<a href="@Url.Action("ViewAllCompanies","Admin")">ViewCompanies</a>
+<label>ID</label><input type="text" name="CID" />
+
+<input type="submit" value="Add Service" />
+}
+
